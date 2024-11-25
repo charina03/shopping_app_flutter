@@ -18,7 +18,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img1.jpg",
+                  "../assets/images/1.jpg",
                   width: 40,
                   height: 40,
                 ),
@@ -45,7 +45,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img2.jpg",
+                  "../assets/images/2.jpg",
                   width: 40,
                   height: 40,
                 ),
@@ -72,7 +72,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img3.jpg",
+                  "../assets/images/3.jpg",
                   width: 40,
                   height: 40,
                 ),
@@ -99,7 +99,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img4.jpg",
+                  "../assets/images/4.jpg",
                   width: 40,
                   height: 40,
                 ),
@@ -126,7 +126,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img5.jpg",
+                  "../assets/images/5.jpg",
                   width: 40,
                   height: 40,
                 ),
@@ -153,7 +153,7 @@ class CategoriesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Image.asset(
-                  "../images/img6.jpg",
+                  "../assets/images/6.jpg",
                   width: 40,
                   height: 40,
                 ),
