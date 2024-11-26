@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/CategoriesWidget.dart';
 import '../widgets/HomeAppBar.dart';
+import '../widgets/ItemsWidget.dart';
 
 class Homepage extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class Homepage extends StatelessWidget {
       body: ListView(children: [
         HomeAppBar(),
         Container(
-          height: 500,
+          // height: 500,
           padding: EdgeInsets.only(top: 15),
           decoration: BoxDecoration(
             color: Color(0xFFEDECF2),
@@ -31,6 +32,7 @@ class Homepage extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
+                    //search widget
                     Container(
                       margin: EdgeInsets.only(left: 5),
                       height: 50,
@@ -51,6 +53,8 @@ class Homepage extends StatelessWidget {
                   ],
                 ),
               ),
+
+              //Categories
               Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.symmetric(
@@ -67,8 +71,24 @@ class Homepage extends StatelessWidget {
                 ),
               ),
 
-              //categories
+              //categories widget
               CategoriesWidget(),
+            //Items
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                child: Text(
+                  "Best Selling",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF4C53A5),
+                  ),
+                ),
+              ),
+
+              //Items widget
+              ItemsWidget(),
             ],
           ),
         ),
