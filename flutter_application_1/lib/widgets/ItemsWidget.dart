@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/ProductDetailPage.dart'; // Asegúrate de importar la nueva página
 
 class ItemsWidget extends StatefulWidget {
   final Function(List<Map<String, String>>) updateFavorites;
@@ -120,7 +121,20 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                 ],
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  // Navegar al detalle del producto cuando se toque la imagen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                    builder: (context) => ProductDetailPage(
+                      product: product,
+                      currentIndex: index,        // Pasa el índice actual
+                      products: products,         // Pasa la lista de productos
+                    ),
+                  ),
+                );
+
+                },
                 child: Container(
                   margin: EdgeInsets.all(10),
                   child: Image.asset(
