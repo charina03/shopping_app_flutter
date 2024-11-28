@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Homepage(),
         "cartPage": (context) => CartPage(favoriteProducts: [],),
-        "shoppingPage": (context) => ShoppingPage(),
+        "shoppingPage": (context) => ShoppingPage(cartProducts: [],),
       },
     );
   }

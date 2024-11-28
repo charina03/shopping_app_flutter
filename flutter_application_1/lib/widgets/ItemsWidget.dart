@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/ProductDetailPage.dart'; // Asegúrate de importar la nueva página
+import 'package:flutter_application_1/pages/ProductDetailPage.dart';
+
 
 class ItemsWidget extends StatefulWidget {
   final Function(List<Map<String, String>>) updateFavorites;
+  final List<Map<String, String>> favoriteProducts;
+  final List<Map<String, String>> cartProducts; // Lista de productos en el carrito
+  final Function(List<Map<String, String>>) updateCart; // Callback para actualizar el carrito
 
-  ItemsWidget({required this.updateFavorites});
+  ItemsWidget({
+    required this.updateFavorites,
+    required this.favoriteProducts,
+    required this.cartProducts,
+    required this.updateCart, // Recibimos el callback para actualizar el carrito
+  });
 
   @override
   _ItemsWidgetState createState() => _ItemsWidgetState();
@@ -13,56 +22,75 @@ class ItemsWidget extends StatefulWidget {
 class _ItemsWidgetState extends State<ItemsWidget> {
   List<Map<String, String>> products = [
     {
-      'image': '../assets/images/1.jpg',
+      'image': '../assets/images/laptops/laptop1.jpg', // Ruta corregida
       'title': 'Product 1',
       'description': 'Description for Product 1',
       'price': '\$55',
     },
     {
-      'image': '../assets/images/2.jpg',
+      'image': '../assets/images/2.jpg', // Ruta corregida
       'title': 'Product 2',
       'description': 'Description for Product 2',
       'price': '\$45',
     },
     {
-      'image': '../assets/images/3.jpg',
+      'image': '../assets/images/3.jpg', // Ruta corregida
       'title': 'Product 3',
       'description': 'Description for Product 3',
       'price': '\$35',
     },
     {
-      'image': '../assets/images/4.jpg',
+      'image': '../assets/images/4.jpg', // Ruta corregida
       'title': 'Product 4',
       'description': 'Description for Product 4',
       'price': '\$25',
     },
     {
-      'image': '../assets/images/5.jpg',
+      'image': '../assets/images/5.jpg', // Ruta corregida
       'title': 'Product 5',
       'description': 'Description for Product 5',
       'price': '\$65',
     },
     {
-      'image': '../assets/images/6.jpg',
+      'image': '../assets/images/6.jpg', // Ruta corregida
       'title': 'Product 6',
       'description': 'Description for Product 6',
       'price': '\$75',
     },
   ];
 
-  List<Map<String, String>> favoriteProducts = [];
+  // Método para añadir un producto al carrito
+  void addToCart(Map<String, String> product) {
+    setState(() {
+      if (!widget.cartProducts.contains(product)) {
+        widget.cartProducts.add(product); // Añadimos el producto al carrito
+      }
+    });
 
+    // Actualizamos el carrito en la página principal
+    widget.updateCart(widget.cartProducts);
+
+    // Mostrar el SnackBar de confirmación
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${product['title']} added to cart!'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  // Método para agregar o quitar un producto de los favoritos
   void toggleFavorite(Map<String, String> product) {
     setState(() {
-      if (favoriteProducts.contains(product)) {
-        favoriteProducts.remove(product);
+      if (widget.favoriteProducts.contains(product)) {
+        widget.favoriteProducts.remove(product); // Eliminar si ya está en favoritos
       } else {
-        favoriteProducts.add(product);
+        widget.favoriteProducts.add(product); // Agregar si no está en favoritos
       }
     });
 
     // Actualiza los favoritos en la página principal
-    widget.updateFavorites(favoriteProducts);
+    widget.updateFavorites(widget.favoriteProducts);
   }
 
   @override
@@ -109,7 +137,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                   ),
                   IconButton(
                     icon: Icon(
-                      favoriteProducts.contains(product)
+                      widget.favoriteProducts.contains(product)
                           ? Icons.favorite
                           : Icons.favorite_border,
                       color: Colors.red,
@@ -126,19 +154,18 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                    builder: (context) => ProductDetailPage(
-                      product: product,
-                      currentIndex: index,        // Pasa el índice actual
-                      products: products,         // Pasa la lista de productos
+                      builder: (context) => ProductDetailPage(
+                        product: product,
+                        currentIndex: index,        
+                        products: products,         
+                      ),
                     ),
-                  ),
-                );
-
+                  );
                 },
                 child: Container(
                   margin: EdgeInsets.all(10),
                   child: Image.asset(
-                    product['image']!,
+                    product['image']!, // Asignamos la ruta de la imagen
                     height: 140,
                     width: 140,
                   ),
@@ -179,9 +206,14 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                         color: Color(0xFF4C53A5),
                       ),
                     ),
-                    Icon(
-                      Icons.shopping_cart_checkout,
-                      color: Color(0xFF4C53A5),
+                    IconButton(
+                      icon: Icon(
+                        Icons.shopping_cart_checkout,
+                        color: Color(0xFF4C53A5),
+                      ),
+                      onPressed: () {
+                        addToCart(product); // Añadir al carrito
+                      },
                     ),
                   ],
                 ),

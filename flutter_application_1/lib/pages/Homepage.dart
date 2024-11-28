@@ -5,7 +5,6 @@ import 'package:flutter_application_1/pages/ShoppingPage.dart';
 import 'package:flutter_application_1/widgets/HomeAppBar.dart';
 import '../widgets/CategoriesWidget.dart';
 import '../widgets/ItemsWidget.dart';
- 
 
 class Homepage extends StatefulWidget {
   @override
@@ -16,6 +15,9 @@ class _HomepageState extends State<Homepage> {
   // Lista para mantener los productos favoritos
   List<Map<String, String>> favoriteProducts = [];
 
+  // Lista para mantener los productos en el carrito
+  List<Map<String, String>> cartProducts = [];
+
   // Función para actualizar los favoritos
   void updateFavorites(List<Map<String, String>> newFavorites) {
     setState(() {
@@ -23,100 +25,130 @@ class _HomepageState extends State<Homepage> {
     });
   }
 
+  // Función para actualizar el carrito
+  void updateCart(List<Map<String, String>> newCart) {
+    setState(() {
+      cartProducts = newCart;
+    });
+  }
+
+  // Índice actual de la barra de navegación
+  int _selectedIndex = 0;
+
+  // Función para cambiar la página activa
+  void onNavItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: HomeAppBar(favoriteProducts: favoriteProducts),
-      body: ListView(
+      body: IndexedStack(
+        index: _selectedIndex,
         children: [
-          Container(
-            padding: EdgeInsets.only(top: 15),
-            decoration: BoxDecoration(
-              color: Color(0xFFEDECF2),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(35),
-                topRight: Radius.circular(35),
-              ),
-            ),
-            child: Column(
-              children: [
-                // Barra de búsqueda
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(30),
+          // Página inicial (Home)
+          ListView(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xFFEDECF2),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(35),
+                    topRight: Radius.circular(35),
                   ),
-                  child: Row(
-                    children: [
-                      // Campo de texto para buscar
-                      Container(
-                        margin: EdgeInsets.only(left: 5),
-                        height: 50,
-                        width: 300,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: "search here...",
+                ),
+                child: Column(
+                  children: [
+                    // Barra de búsqueda
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Row(
+                        children: [
+                          // Campo de texto para buscar
+                          Container(
+                            margin: EdgeInsets.only(left: 5),
+                            height: 50,
+                            width: 300,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "search here...",
+                              ),
+                            ),
                           ),
+                        ],
+                      ),
+                    ),
+
+                    // Categorías
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                      child: Text(
+                        "Categories",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-
-                // Categorías
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                  child: Text(
-                    "Categories",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF4C53A5),
                     ),
-                  ),
-                ),
 
-                // Widget de categorías
-                CategoriesWidget(),
-
-                // Título para "Best Selling"
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                  child: Text(
-                    "Best Selling",
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF4C53A5),
+                    // Widget de categorías
+                    CategoriesWidget(
+                      updateFavorites: updateFavorites, // Pasamos la función para actualizar los favoritos
+                      favoriteProducts: favoriteProducts, // Lista de productos favoritos
+                      cartProducts: cartProducts, // Lista de productos en el carrito
+                      updateCart: updateCart, // Pasamos la función para actualizar el carrito
                     ),
-                  ),
-                ),
 
-                // Widget de items
-                ItemsWidget(updateFavorites: updateFavorites), // Pasamos la función de actualización a ItemsWidget
-              ],
-            ),
+                    // Título para "Best Selling"
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                      child: Text(
+                        "Best Selling",
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF4C53A5),
+                        ),
+                      ),
+                    ),
+
+                    // Widget de items
+                    ItemsWidget(
+                      updateFavorites: updateFavorites,
+                      favoriteProducts: favoriteProducts,
+                      cartProducts: cartProducts, // Pasamos la lista de productos en el carrito
+                      updateCart: updateCart, // Pasamos la función para actualizar el carrito
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+          // Página del carrito
+          ShoppingPage(
+            cartProducts: cartProducts,
           ),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,
         onTap: (index) {
-          if (index == 1) {
-            // Navegar a CartPage cuando se haga clic en el carrito
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ShoppingPage(),
-              ),
-            );
-          }
+          onNavItemTapped(index);
         },
         height: 70,
         color: Color(0xFF4C53A5),
