@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/LaptosPage.dart';
-
+import 'package:flutter_application_1/pages/MousePage.dart';
+import 'package:flutter_application_1/pages/KeyboardsPage.dart';
+import 'package:flutter_application_1/pages/HeadphonePage.dart';  // Importa HeadphonePage
 
 class CategoriesWidget extends StatelessWidget {
   final Function(List<Map<String, String>>) updateFavorites;
@@ -14,25 +16,25 @@ class CategoriesWidget extends StatelessWidget {
     required this.cartProducts,
     required this.updateCart,
   });
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          // Contenedor 1: Laptops (con navegación)
+          // Contenedor 1: Laptops
           GestureDetector(
             onTap: () {
-              // Navegar a la página de Laptops cuando se haga clic
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => LaptopsPage(
-                    updateFavorites: updateFavorites, // Lógica para actualizar favoritos
-                    favoriteProducts: favoriteProducts, // Lista de productos favoritos
-                    cartProducts: cartProducts, // Lista de productos en el carrito
-                    updateCart: updateCart, // Lógica para actualizar el carrito
-                  ), // Redirige a la página Laptops
+                    updateFavorites: updateFavorites,
+                    favoriteProducts: favoriteProducts,
+                    cartProducts: cartProducts,
+                    updateCart: updateCart,
+                  ),
                 ),
               );
             },
@@ -68,7 +70,17 @@ class CategoriesWidget extends StatelessWidget {
           // Contenedor 2: Mouse
           GestureDetector(
             onTap: () {
-              // Lógica para navegar a la página de Mouse
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MousePage(
+                    updateFavorites: updateFavorites,
+                    favoriteProducts: favoriteProducts,
+                    cartProducts: cartProducts,
+                    updateCart: updateCart,
+                  ),
+                ),
+              );
             },
             child: Container(
               key: Key("mouse"),
@@ -82,7 +94,7 @@ class CategoriesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "../assets/images/2.jpg",
+                    "../assets/images/mouse/mouse1.jpg",
                     width: 40,
                     height: 40,
                   ),
@@ -102,7 +114,17 @@ class CategoriesWidget extends StatelessWidget {
           // Contenedor 3: Keyboards
           GestureDetector(
             onTap: () {
-              // Lógica para navegar a la página de Keyboards
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => KeyboardsPage(
+                    updateFavorites: updateFavorites,
+                    favoriteProducts: favoriteProducts,
+                    cartProducts: cartProducts,
+                    updateCart: updateCart,
+                  ),
+                ),
+              );
             },
             child: Container(
               key: Key("keyboards"),
@@ -116,7 +138,7 @@ class CategoriesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "../assets/images/3.jpg",
+                    "../assets/images/teclados/teclado1.jpg",
                     width: 40,
                     height: 40,
                   ),
@@ -136,7 +158,17 @@ class CategoriesWidget extends StatelessWidget {
           // Contenedor 4: Headphones
           GestureDetector(
             onTap: () {
-              // Lógica para navegar a la página de Headphones
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HeadphonePage(
+                    updateFavorites: updateFavorites,
+                    favoriteProducts: favoriteProducts,
+                    cartProducts: cartProducts,
+                    updateCart: updateCart,
+                  ),
+                ),
+              );
             },
             child: Container(
               key: Key("headphones"),
@@ -150,7 +182,7 @@ class CategoriesWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "../assets/images/4.jpg",
+                    "../assets/images/auriculares/auricular1.jpg",
                     width: 40,
                     height: 40,
                   ),
@@ -166,8 +198,6 @@ class CategoriesWidget extends StatelessWidget {
               ),
             ),
           ),
-
-          // Otros contenedores (Mouse, Keyboards, etc.)
         ],
       ),
     );

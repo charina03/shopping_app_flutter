@@ -28,19 +28,19 @@ class _ItemsWidgetState extends State<ItemsWidget> {
       'price': '\$55',
     },
     {
-      'image': '../assets/images/2.jpg', // Ruta corregida
+      'image': '../assets/images/mouse/mouse1.jpg', // Ruta corregida
       'title': 'Product 2',
       'description': 'Description for Product 2',
       'price': '\$45',
     },
     {
-      'image': '../assets/images/3.jpg', // Ruta corregida
+      'image': '../assets/images/teclados/teclado1.jpg', // Ruta corregida
       'title': 'Product 3',
       'description': 'Description for Product 3',
       'price': '\$35',
     },
     {
-      'image': '../assets/images/4.jpg', // Ruta corregida
+      'image': '../assets/images/auriculares/auricular1.jpg', // Ruta corregida
       'title': 'Product 4',
       'description': 'Description for Product 4',
       'price': '\$25',
