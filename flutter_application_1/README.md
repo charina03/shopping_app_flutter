@@ -50,3 +50,7 @@ Favoritos: Los usuarios pueden marcar productos como favoritos para acceder ráp
 Detalles del Producto: Al hacer clic en un producto, el usuario puede ver información detallada sobre el mismo.
 
 
+## Capturas de Pantalla
+![image](https://github.com/user-attachments/assets/74f3aba3-8751-49a4-9c59-5e92366a4c6f)
+
+
