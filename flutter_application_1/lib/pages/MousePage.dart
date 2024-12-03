@@ -22,39 +22,39 @@ class _MousePageState extends State<MousePage> {
   List<Map<String, String>> products = [
     {
       'image': '../assets/images/mouse/mouse1.jpg',
-      'title': 'Mouse 1',
-      'description': 'High-precision gaming mouse.',
-      'price': '\$50',
+      'title': 'Mouse Gamer Viper X',
+      'description': 'Sensor de alta precisión de 16,000 DPI ajustable',
+      'price': '\$2,000',
     },
     {
       'image': '../assets/images/mouse/mouse2.jpg',
-      'title': 'Mouse 2',
-      'description': 'Ergonomic wireless mouse for office work.',
-      'price': '\$25',
+      'title': 'Mouse Gamer',
+      'description': 'Ratón para juegos RGB con DPI ajustable.',
+      'price': '\$3,400',
     },
     {
       'image': '../assets/images/mouse/mouse3.jpg',
-      'title': 'Mouse 3',
-      'description': 'Budget mouse with great functionality.',
-      'price': '\$15',
+      'title': 'Mouse Inalámbrico',
+      'description': 'Ratón económico con gran funcionalidad.',
+      'price': '\$2,950',
     },
     {
       'image': '../assets/images/mouse/mouse4.jpg',
-      'title': 'Mouse 4',
-      'description': 'RGB gaming mouse with adjustable DPI.',
-      'price': '\$40',
+      'title': 'Mouse Clásico',
+      'description': 'Ratón inalámbrico para trabajos de oficina.',
+      'price': '\$1,500',
     },
     {
       'image': '../assets/images/mouse/mouse5.jpg',
-      'title': 'Mouse 5',
-      'description': 'Wireless mouse with rechargeable battery.',
-      'price': '\$35',
+      'title': 'Mouse Gamer Nébula ',
+      'description': 'Ratón compacto para viajes y portabilidad.',
+      'price': '\$3,500',
     },
     {
       'image': '../assets/images/mouse/mouse6.jpg',
-      'title': 'Mouse 6',
-      'description': 'Compact mouse for travel and portability.',
-      'price': '\$20',
+      'title': 'Inalámbrico Polaris',
+      'description': 'Ratón inalámbrico con batería recargable.',
+      'price': '\$2,300',
     },
   ];
 
@@ -72,7 +72,7 @@ class _MousePageState extends State<MousePage> {
     // Mostrar el SnackBar de confirmación
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product['title']} added to cart!'),
+        content: Text('${product['title']} añadido al carrito!'),
         duration: Duration(seconds: 2),
       ),
     );

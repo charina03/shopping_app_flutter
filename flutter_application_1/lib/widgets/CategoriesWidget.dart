@@ -143,7 +143,7 @@ class CategoriesWidget extends StatelessWidget {
                     height: 40,
                   ),
                   Text(
-                    "Keyboards",
+                    "Teclados",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
@@ -187,7 +187,7 @@ class CategoriesWidget extends StatelessWidget {
                     height: 40,
                   ),
                   Text(
-                    "Headphones",
+                    "Audífonos",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,

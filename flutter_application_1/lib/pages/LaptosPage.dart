@@ -22,39 +22,39 @@ class _LaptopsPageState extends State<LaptopsPage> {
   List<Map<String, String>> products = [
     {
       'image': '../assets/images/laptops/laptop1.jpg',
-      'title': 'Laptop 1',
-      'description': 'High-performance laptop for gaming.',
-      'price': '\$1200',
+      'title': 'HP Spectre x360',
+      'description': 'Intel Core i7 12ª generación, 16GB RAM y un SSD 1TB.',
+      'price': '\$20,000',
     },
     {
       'image': '../assets/images/laptops/laptop2.webp',
-      'title': 'Laptop 2',
-      'description': 'Ultrabook for work and study.',
-      'price': '\$800',
+      'title': 'HP Pavilion 15-dg1000',
+      'description': 'Ultrabook para trabajar y estudiar.',
+      'price': '\$10,000',
     },
     {
       'image': '../assets/images/laptops/laptop3.jpeg',
-      'title': 'Laptop 3',
-      'description': 'Budget-friendly laptop with great features.',
-      'price': '\$500',
+      'title': 'Razer Nitro',
+      'description': 'Portátil económico con excelentes funciones.',
+      'price': '\$30,000',
     },
     {
       'image': '../assets/images/laptops/laptop4.png',
-      'title': 'Laptop 4',
-      'description': '2-in-1 convertible laptop.',
-      'price': '\$950',
+      'title': 'Lenovo IdeaPad',
+      'description': '2-en-1 laptop convertible.',
+      'price': '\$33,000',
     },
     {
       'image': '../assets/images/laptops/laptop5.jpg',
-      'title': 'Laptop 5',
-      'description': 'Laptop with long battery life.',
-      'price': '\$750',
+      'title': 'Huawei MateBook Pro',
+      'description': 'Portátil con batería de larga duración.',
+      'price': '\$18,900',
     },
     {
       'image': '../assets/images/laptops/laptop6.jpg',
-      'title': 'Laptop 6',
-      'description': 'Laptop with high-resolution display.',
-      'price': '\$1100',
+      'title': 'HP 15-da0000',
+      'description': 'Laptop con pantalla de alta resolución.',
+      'price': '\$15,200',
     },
   ];
 
@@ -72,7 +72,7 @@ class _LaptopsPageState extends State<LaptopsPage> {
     // Mostrar el SnackBar de confirmación
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product['title']} added to cart!'),
+        content: Text('${product['title']} añadido al carrito!'),
         duration: Duration(seconds: 2),
       ),
     );

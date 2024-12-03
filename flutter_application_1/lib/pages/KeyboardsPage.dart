@@ -22,39 +22,39 @@ class _KeyboardPageState extends State<KeyboardsPage> {
   List<Map<String, String>> products = [
     {
       'image': '../assets/images/teclados/teclado1.jpg',
-      'title': 'Keyboard 1',
-      'description': 'Mechanical gaming keyboard with RGB lighting.',
-      'price': '\$80',
+      'title': 'Teclado Gaming',
+      'description': 'Diseño compacto y ergonómico.',
+      'price': '\$3,500',
     },
     {
       'image': '../assets/images/teclados/teclado2.webp',
-      'title': 'Keyboard 2',
-      'description': 'Ergonomic keyboard for office work.',
-      'price': '\$40',
+      'title': 'SpectraStrike',
+      'description': 'Teclado ergonómico para gamers.',
+      'price': '\$2,400',
     },
     {
       'image': '../assets/images/teclados/teclado3.webp',
-      'title': 'Keyboard 3',
-      'description': 'Compact and portable keyboard for travel.',
-      'price': '\$30',
+      'title': 'Vintage Zenith',
+      'description': 'Retro en diseño, moderno en función.',
+      'price': '\$3,100',
     },
     {
       'image': '../assets/images/teclados/teclado4.webp',
-      'title': 'Keyboard 4',
-      'description': 'Wireless keyboard with long battery life.',
-      'price': '\$50',
+      'title': 'Kaleido',
+      'description': 'Personaliza tu experiencia con colores.',
+      'price': '\$2,950',
     },
     {
       'image': '../assets/images/teclados/teclado5.jpg',
-      'title': 'Keyboard 5',
-      'description': 'RGB mechanical keyboard with customizable keys.',
-      'price': '\$90',
+      'title': 'Microsoft Sculpt',
+      'description': 'Permite una postura más natural y cómoda.',
+      'price': '\$3,000',
     },
     {
       'image': '../assets/images/teclados/teclado6.webp',
-      'title': 'Keyboard 6',
-      'description': 'Budget-friendly keyboard for casual users.',
-      'price': '\$20',
+      'title': 'Teclado Apple Magic',
+      'description': 'Inalámbrico elegante y minimalista.',
+      'price': '\$3,200',
     },
   ];
 
@@ -72,7 +72,7 @@ class _KeyboardPageState extends State<KeyboardsPage> {
     // Mostrar el SnackBar de confirmación
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product['title']} added to cart!'),
+        content: Text('${product['title']} añadido al carrito!'),
         duration: Duration(seconds: 2),
       ),
     );
@@ -96,7 +96,7 @@ class _KeyboardPageState extends State<KeyboardsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Keyboards"),
+        title: Text("Teclados"),
         backgroundColor: Color(0xFF4C53A5),
       ),
       body: GridView.builder(

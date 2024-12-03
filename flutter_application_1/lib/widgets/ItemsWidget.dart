@@ -23,39 +23,39 @@ class _ItemsWidgetState extends State<ItemsWidget> {
   List<Map<String, String>> products = [
     {
       'image': '../assets/images/laptops/laptop1.jpg', // Ruta corregida
-      'title': 'Product 1',
-      'description': 'Description for Product 1',
-      'price': '\$55',
+      'title': 'HP Spectre x360',
+      'description': 'Intel Core i7 12ª generación, 16GB RAM y un SSD 1TB',
+      'price': '\$20,000',
     },
     {
       'image': '../assets/images/mouse/mouse1.jpg', // Ruta corregida
-      'title': 'Product 2',
-      'description': 'Description for Product 2',
-      'price': '\$45',
+      'title': 'Mouse Gamer Viper X',
+      'description': 'Sensor de alta precisión de 16,000 DPI ajustable',
+      'price': '\$2,000',
     },
     {
       'image': '../assets/images/teclados/teclado1.jpg', // Ruta corregida
-      'title': 'Product 3',
-      'description': 'Description for Product 3',
-      'price': '\$35',
+      'title': 'Teclado Gaming',
+      'description': 'Diseño compacto y ergonómico.',
+      'price': '\$3,500',
     },
     {
       'image': '../assets/images/auriculares/auricular1.jpg', // Ruta corregida
-      'title': 'Product 4',
-      'description': 'Description for Product 4',
-      'price': '\$25',
+      'title': 'Audífonos Elite Sound',
+      'description': 'Conectividad Bluetooth, Asistente de voz integrad.',
+      'price': '\$4,000',
     },
     {
       'image': '../assets/images/5.jpg', // Ruta corregida
-      'title': 'Product 5',
-      'description': 'Description for Product 5',
-      'price': '\$65',
+      'title': 'Altavoces BassBoost',
+      'description': 'Potencia de salida 10W RMS por altavoz.',
+      'price': '\$2,499',
     },
     {
       'image': '../assets/images/6.jpg', // Ruta corregida
-      'title': 'Product 6',
-      'description': 'Description for Product 6',
-      'price': '\$75',
+      'title': 'Canon Pixma MG3620',
+      'description': 'Compatible gran variedad de dispositivos y SO.',
+      'price': '\$12,339',
     },
   ];
 
@@ -73,7 +73,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
     // Mostrar el SnackBar de confirmación
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product['title']} added to cart!'),
+        content: Text('${product['title']} añadido al carrito!'),
         duration: Duration(seconds: 2),
       ),
     );

@@ -22,39 +22,39 @@ class _HeadphonePageState extends State<HeadphonePage> {
   List<Map<String, String>> products = [
     {
       'image': '../assets/images/auriculares/auricular1.jpg',
-      'title': 'Headphone 1',
-      'description': 'Noise-cancelling over-ear headphones.',
-      'price': '\$120',
+      'title': 'Audífonos Elite Sound',
+      'description': 'Conectividad Bluetooth, Asistente de voz integrad.',
+      'price': '\$4,000',
     },
     {
       'image': '../assets/images/auriculares/auricular2.webp',
-      'title': 'Headphone 2',
-      'description': 'Wireless Bluetooth headphones.',
-      'price': '\$90',
+      'title': '1BORA Buds',
+      'description': 'Conéctate sin cables y disfruta tu música.',
+      'price': '\$1,900',
     },
     {
       'image': '../assets/images/auriculares/auricular3.webp',
-      'title': 'Headphone 3',
-      'description': 'Compact earbuds with great sound.',
-      'price': '\$50',
+      'title': 'Violeta SoundPro',
+      'description': 'Relájate con un sonido envolvente.',
+      'price': '\$2,000',
     },
     {
       'image': '../assets/images/auriculares/auricular4.jpg',
-      'title': 'Headphone 4',
-      'description': 'Gaming headset with surround sound.',
-      'price': '\$150',
+      'title': 'Sony WH-1000XM5 ',
+      'description': 'Ofrecen una experiencia auditiva inigualable.',
+      'price': '\$2,996',
     },
     {
       'image': '../assets/images/auriculares/auricular5.jpg',
-      'title': 'Headphone 5',
-      'description': 'Affordable wired headphones for everyday use.',
-      'price': '\$30',
+      'title': 'Cascos Gaming',
+      'description': 'Combina estilo y funcionalidad.',
+      'price': '\$1,890',
     },
     {
       'image': '../assets/images/auriculares/auricular6.jpg',
-      'title': 'Headphone 6',
-      'description': 'Sports Bluetooth headphones for running.',
-      'price': '\$70',
+      'title': 'Auriculares TWS',
+      'description': 'Resistencia al agua. Control táctil.',
+      'price': '\$2,000',
     },
   ];
 
@@ -72,7 +72,7 @@ class _HeadphonePageState extends State<HeadphonePage> {
     // Mostrar el SnackBar de confirmación
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('${product['title']} added to cart!'),
+        content: Text('${product['title']} añadido al carrito!'),
         duration: Duration(seconds: 2),
       ),
     );
@@ -96,7 +96,7 @@ class _HeadphonePageState extends State<HeadphonePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Headphones"),
+        title: Text("Audífonos"),
         backgroundColor: Color(0xFF4C53A5),
       ),
       body: GridView.builder(

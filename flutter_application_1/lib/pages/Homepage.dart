@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/DeviceCarePage.dart';
 import 'package:flutter_application_1/pages/ShoppingPage.dart';
 import 'package:flutter_application_1/widgets/HomeAppBar.dart';
 import '../widgets/CategoriesWidget.dart';
@@ -82,7 +83,7 @@ class _HomepageState extends State<Homepage> {
                             child: TextFormField(
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: "search here...",
+                                hintText: "buscar aquí...",
                               ),
                             ),
                           ),
@@ -95,7 +96,7 @@ class _HomepageState extends State<Homepage> {
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                       child: Text(
-                        "Categories",
+                        "Categorias",
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
@@ -117,7 +118,7 @@ class _HomepageState extends State<Homepage> {
                       alignment: Alignment.centerLeft,
                       margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                       child: Text(
-                        "Best Selling",
+                        "Más vendidos",
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
@@ -143,6 +144,8 @@ class _HomepageState extends State<Homepage> {
           ShoppingPage(
             cartProducts: cartProducts,
           ),
+
+          DeviceCarePage(),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(

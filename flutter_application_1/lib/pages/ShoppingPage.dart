@@ -35,7 +35,7 @@ class _ShoppingPageState extends State<ShoppingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping Cart'),
+        title: Text('Carrito de Compras'),
         backgroundColor: Color(0xFF4C53A5),
       ),
       body: Column(
